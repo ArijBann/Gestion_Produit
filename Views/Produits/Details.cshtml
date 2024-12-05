@@ -1,0 +1,71 @@
+﻿@model GestionDesProduits.Models.Produits
+
+@{
+ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-4">
+    <!-- Card Layout for Product Details -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <!-- Product Image -->
+            <div class="text-center mb-4">
+                <img src="@Model.ImageUrl" class="img-fluid" style="max-width: 200px; max-height: 200px; border-radius: 8px;" />
+            </div>
+
+            <!-- Product Information -->
+            <dl class="row">
+                <!-- Product Name -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.NomProduit):</label>
+                    <p>@Html.DisplayFor(model => model.NomProduit)</p>
+                </div>
+
+                <!-- Store Information -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.Magasins):</label>
+                    <p>@Html.DisplayFor(model => model.Magasins.NomParVille)</p>
+                </div>
+
+                <!-- Category -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.Categories):</label>
+                    <p>@Html.DisplayFor(model => model.Categories.NomCategorie)</p>
+                </div>
+
+                <!-- Stock Description -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.DescriptionStock):</label>
+                    <p>@Html.DisplayFor(model => model.DescriptionStock)</p>
+                </div>
+
+                <!-- Promo Dates -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.DateDebutPromo):</label>
+                    <p>@Html.DisplayFor(model => model.DateDebutPromo)</p>
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.DateFinPromo):</label>
+                    <p>@Html.DisplayFor(model => model.DateFinPromo)</p>
+                </div>
+
+                <!-- Prices -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.prixProduit):</label>
+                    <p>@Html.DisplayFor(model => model.prixProduit)</p>
+                    <label class="font-weight-bold">@Html.DisplayNameFor(model => model.prixProduitEnPromo):</label>
+                    <p>@Html.DisplayFor(model => model.prixProduitEnPromo)</p>
+                </div>
+            </dl>
+
+            <!-- Action Buttons -->
+            <div class="text-center">
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                <p>
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-lg mx-2">Edit</a>
+                </p>
+                }
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg mx-2">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

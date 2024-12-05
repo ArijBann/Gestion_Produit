@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+<<<<<<< HEAD
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:GestionDesProduitsContext"
+=======
+>>>>>>> e0ddb59534431cdb5a754c898f9f99707dce0b8d
+    }
+  }
+}

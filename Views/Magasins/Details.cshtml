@@ -1,0 +1,32 @@
+﻿@model GestionDesProduits.Models.Magasin
+
+@{
+ViewData["Title"] = "Store Details";
+}
+
+<div class="container d-flex justify-content-center mt-4">
+    <div class="card shadow-sm" style="max-width: 600px; width: 100%;">
+        <div class="card-body">
+            <h4 class="card-title mb-4 text-center">Details for: <span class="text-primary">@Model.NomMagasin</span></h4>
+            <dl class="row">
+                <!-- Store Name -->
+                <dt class="col-sm-4 fw-bold">Store Name:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.NomMagasin)</dd>
+
+                <!-- City -->
+                <dt class="col-sm-4 fw-bold">City:</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ville)</dd>
+            </dl>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="card-footer text-center">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary me-2">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

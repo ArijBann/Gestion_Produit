@@ -1,0 +1,47 @@
+﻿@model GestionDesProduits.Models.Magasin
+
+@{
+ViewData["Title"] = "Create Store";
+}
+
+<div class="container d-flex justify-content-center mt-4">
+    <div class="card shadow-sm" style="max-width: 600px; width: 100%;">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">Create New Store</h4>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Store Name -->
+                <div class="form-group mb-3">
+                    <label asp-for="NomMagasin" class="control-label fw-bold">Store Name</label>
+                    <input asp-for="NomMagasin" class="form-control" placeholder="Enter store name" />
+                    <span asp-validation-for="NomMagasin" class="text-danger"></span>
+                </div>
+
+                <!-- City -->
+                <div class="form-group mb-3">
+                    <label asp-for="ville" class="control-label fw-bold">City</label>
+                    <input asp-for="ville" class="form-control" placeholder="Enter city name" />
+                    <span asp-validation-for="ville" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-plus-circle"></i> Create Store
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- Back to List Button -->
+        <div class="card-footer text-center">
+            <a asp-action="Index" class="btn btn-outline-secondary w-100">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

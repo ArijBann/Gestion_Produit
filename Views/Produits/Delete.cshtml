@@ -1,0 +1,79 @@
+﻿@model GestionDesProduits.Models.Produits
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<div class="container mt-4">
+    <!-- Card Layout for Deleting Product -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <!-- Confirmation Header -->
+            <h3 class="text-center mb-4">Are you sure you want to delete this product?</h3>
+
+            <!-- Product Details -->
+            <dl class="row">
+                <!-- Image URL -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Product Image:</label>
+                    <div>
+                        <img src="@Model.ImageUrl" alt="Product Image" class="img-fluid" style="max-width: 150px;" />
+                    </div>
+                </div>
+
+                <!-- Product Name -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Product Name:</label>
+                    <p>@Model.NomProduit</p>
+                </div>
+
+                <!-- Store Details -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Store:</label>
+                    <p>@Model.Magasins.NomParVille</p>
+                </div>
+
+                <!-- Category -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Category:</label>
+                    <p>@Model.Categories.NomCategorie</p>
+                </div>
+
+                <!-- Description -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Stock Description:</label>
+                    <p>@Model.DescriptionStock</p>
+                </div>
+
+                <!-- Promo Start and End Dates -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Promo Dates:</label>
+                    <p>Start: @Model.DateDebutPromo | End: @Model.DateFinPromo</p>
+                </div>
+
+                <!-- Product Price -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Regular Price:</label>
+                    <p>@Model.prixProduit</p>
+                </div>
+
+                <!-- Promo Price -->
+                <div class="col-sm-12 mb-3">
+                    <label class="font-weight-bold">Promo Price:</label>
+                    <p>@Model.prixProduitEnPromo</p>
+                </div>
+            </dl>
+
+            <!-- Action Buttons -->
+            <div class="text-center">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <!-- Danger Action Button -->
+                    <button type="submit" class="btn btn-danger btn-lg mx-2">Delete Product</button>
+                    <!-- Back to List Button -->
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg mx-2">Back to List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

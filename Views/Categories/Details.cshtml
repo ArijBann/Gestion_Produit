@@ -1,0 +1,32 @@
+﻿@model GestionDesProduits.Models.Categorie
+
+@{
+ViewData["Title"] = "Category Details";
+}
+
+<div class="container mt-4">
+    <!-- Card Layout -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">Category Details</h4>
+            <hr />
+
+            <!-- Category Information -->
+            <dl class="row">
+                <!-- Category Name -->
+                <dt class="col-sm-3 fw-bold">Category Name:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NomCategorie)</dd>
+            </dl>
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

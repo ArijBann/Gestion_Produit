@@ -1,0 +1,54 @@
+﻿@model GestionDesProduits.Models.Magasin
+
+@{
+ViewData["Title"] = "Edit Store";
+}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-4 text-center">Edit Store Details</h4>
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Store Name -->
+                        <div class="mb-3">
+                            <label asp-for="NomMagasin" class="form-label fw-bold">Store Name</label>
+                            <input asp-for="NomMagasin" class="form-control" placeholder="Enter store name" />
+                            <span asp-validation-for="NomMagasin" class="text-danger"></span>
+                        </div>
+
+                        <!-- City -->
+                        <div class="mb-3">
+                            <label asp-for="ville" class="form-label fw-bold">City</label>
+                            <input asp-for="ville" class="form-control" placeholder="Enter city name" />
+                            <span asp-validation-for="ville" class="text-danger"></span>
+                        </div>
+
+                        <!-- Save Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="bi bi-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Back to List -->
+            <div class="text-center mt-4">
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

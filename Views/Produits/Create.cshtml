@@ -1,0 +1,74 @@
+﻿@model GestionDesProduits.Models.Produits
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<hr />
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomProduit" class="control-label"></label>
+                <input asp-for="NomProduit" class="form-control" />
+                <span asp-validation-for="NomProduit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MagasinId" class="control-label"></label>
+                <select asp-for="MagasinId" class ="form-control" asp-items="ViewBag.MagasinId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategorieId" class="control-label"></label>
+                <select asp-for="CategorieId" class ="form-control" asp-items="ViewBag.CategorieId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionStock" class="control-label"></label>
+                <input asp-for="DescriptionStock" class="form-control" />
+                <span asp-validation-for="DescriptionStock" class="text-danger"></span>
+            </div>
+            <h1 style ="color: #e35b4b;font-size: 17px;">@ViewBag.InvalidDate</h1>
+            <div class="form-group">
+                <label asp-for="DateDebutPromo" class="control-label"></label>
+                <input asp-for="DateDebutPromo" class="form-control" />
+                <span asp-validation-for="DateDebutPromo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFinPromo" class="control-label"></label>
+                <input asp-for="DateFinPromo" class="form-control" />
+                <span asp-validation-for="DateFinPromo" class="text-danger"></span>
+            </div>
+             <h1 style ="color: #e35b4b;font-size: 17px;">@ViewBag.InvalidPrix</h1>
+            <div class="form-group">
+                <label asp-for="prixProduit" class="control-label"></label>
+                <input asp-for="prixProduit" class="form-control" />
+                <span asp-validation-for="prixProduit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prixProduitEnPromo" class="control-label"></label>
+                <input asp-for="prixProduitEnPromo" class="form-control" />
+                <span asp-validation-for="prixProduitEnPromo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
